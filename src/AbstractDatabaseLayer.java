@@ -13,7 +13,6 @@ public abstract class AbstractDatabaseLayer {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(
                     url,"root","1327emreylr");
-
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

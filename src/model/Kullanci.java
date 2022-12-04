@@ -1,15 +1,29 @@
 package model;
 
 public class Kullanci {
+    public enum Cinsiyet{erkek,kadin};
+    public enum Statu{admin,yolcu};
+    public Cinsiyet cinsiyet;
+    public Statu statu;
     protected int id;
     protected String isim;
     protected String soyisim;
     protected String sifre;
+    protected String kullaniciAdi;
 
-    public Kullanci(String isim, String soyisim, String sifre) {
+    public Kullanci(String isim, String soyisim, String kullaniciAdi, String sifre, Cinsiyet cinsiyet) {
         this.isim = isim;
         this.soyisim = soyisim;
+        this.kullaniciAdi = kullaniciAdi;
         this.sifre = sifre;
+        this.cinsiyet = cinsiyet;
+    }
+    public String getKullaniciAdi() {
+        return kullaniciAdi;
+    }
+
+    public void setKullaniciAdi(String kullaniciAdi) {
+        this.kullaniciAdi = kullaniciAdi;
     }
 
     public String getIsim() {
@@ -35,4 +49,6 @@ public class Kullanci {
     public void setSifre(String sifre) {
         this.sifre = sifre;
     }
+
+
 }

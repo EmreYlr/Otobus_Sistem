@@ -1,56 +1,67 @@
-import model.Yolcu;
+import model.*;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class CreateAccount  {
     DatabaseLayer db;
-    private JPanel contentPane;
-    private JButton buttonOK;
+    private JPanel contentPanel;
+    private JButton buttonSumbit;
     private JButton buttonCancel;
     private JTextField nameField;
     private JTextField lastNameField;
-    private JTextField phoneNumberField;
+    private JTextField userNameField;
     private JPasswordField passwordField;
+    private JLabel fillGaps;
+    private JRadioButton maleRadioButton;
+    private JRadioButton femaleRadioButton;
+    private JLabel userNameText;
 
     public CreateAccount() {
         db = new DatabaseLayer();
         JFrame frame = new JFrame("");
         frame.setSize(550, 400);
-        frame.add(contentPane);
+        frame.add(contentPanel);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        buttonOK.addActionListener(new ActionListener() {
+        buttonSumbit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                db = new DatabaseLayer();
+                    if((nameField.getText().equals(""))||(lastNameField.getText().equals("")) || (userNameField.getText().equals(""))
+                    || passwordField.getText().equals("") || !maleRadioButton.isSelected() && !femaleRadioButton.isSelected()){
+                        fillGaps.setText("Please fill all blanks !");
+                        fillGaps.setBackground(Color.red);
+                        fillGaps.setVisible(true);
+
+                    }else{
+                        if(maleRadioButton.isSelected()){
+                            Kullanci user = new Kullanci(nameField.getText(), lastNameField.getText(), userNameField.getText(), passwordField.getText(), Kullanci.Cinsiyet.erkek);
+                            db.insertYolcu(user);
+
+                        }else{
+                            Kullanci user = new Yolcu(nameField.getText(), lastNameField.getText(), userNameField.getText(), passwordField.getText(), Kullanci.Cinsiyet.kadin);
+                            db.insertYolcu(user);
+                        }
+                        fillGaps.setVisible(false);
+                        JOptionPane.showMessageDialog(null, "Hesap başarılı bir şekilde oluşturuldu.");
+                        frame.dispose();
+                        UserLogin login = new UserLogin();
+
+                    }
+
+
             }
         });
 
         buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onCancel();
+                UserLogin login = new UserLogin();
             }
         });
 
-
-
-        // call onCancel() on ESCAPE
-        contentPane.registerKeyboardAction(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                onCancel();
-            }
-        }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() {
-        Yolcu user = new Yolcu(nameField.getText(), lastNameField.getText(), phoneNumberField.getText(), passwordField.getText());
-        db.insertYolcu(user);
-    }
-
-    private void onCancel() {
-        // add your code here if necessary
-
-    }
 }
