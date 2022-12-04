@@ -38,7 +38,7 @@ public class CreateAccount  {
 
                     }else{
                         if(maleRadioButton.isSelected()){
-                            Kullanci user = new Kullanci(nameField.getText(), lastNameField.getText(), userNameField.getText(), passwordField.getText(), Kullanci.Cinsiyet.erkek);
+                            Kullanci user = new Yolcu(nameField.getText(), lastNameField.getText(), userNameField.getText(), passwordField.getText(), Kullanci.Cinsiyet.erkek);
                             db.insertYolcu(user);
 
                         }else{
@@ -51,11 +51,8 @@ public class CreateAccount  {
                         UserLogin login = new UserLogin();
 
                     }
-
-
             }
         });
-
         buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 UserLogin login = new UserLogin();
