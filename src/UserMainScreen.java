@@ -1,12 +1,12 @@
+import model.Sehir;
+
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.event.*;
 
 public class UserMainScreen extends JDialog {
     private JPanel contentPane;
-    private JComboBox comboBox1;
-    private JComboBox comboBox2;
+    private JComboBox fromBox;
+    private JComboBox toBox;
     private JButton submitButton;
     private JRadioButton a12RadioButton;
     private JRadioButton a7RadioButton;
@@ -34,8 +34,24 @@ public class UserMainScreen extends JDialog {
     private JTextField textField1;
     private JTextField textField2;
     private JComboBox comboBox3;
-    private JButton button1;
-    private ButtonGroup otobusGrup2;
+    private JButton saveButton;
+    private JLabel fillError;
+    private JRadioButton a18RadioButton;
+    private JRadioButton a19RadioButton;
+    private JRadioButton a20RadioButton;
+    private JRadioButton a22RadioButton;
+    private JRadioButton a24RadioButton;
+    private JRadioButton a25RadioButton;
+    private JRadioButton a28RadioButton;
+    private JRadioButton a26RadioButton;
+    private JRadioButton a29RadioButton;
+    private JRadioButton a30RadioButton;
+    private JRadioButton a32RadioButton;
+    private JRadioButton a33RadioButton;
+    private JRadioButton a34RadioButto;
+    private JRadioButton a36RadioButton;
+    private JRadioButton a37RadioButton;
+    private JRadioButton a38RadioButton;
     private ButtonGroup otobusGrup;
     private JButton buttonOK;
     private JButton buttonCancel;
@@ -43,23 +59,15 @@ public class UserMainScreen extends JDialog {
 
     public UserMainScreen() {
         JFrame frame = new JFrame("");
-
         frame.setSize(1000, 600);
         frame.add(contentPane);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-
-        DefaultListModel model = new DefaultListModel<>();
-        model.addElement("Ankara - Urfa 21/11/22 14:30-12:30");
-        model.addElement("Ankara - Urfa 21/11/22 14:30-12:30");
-        list1.setModel(model);
-
-        list1.addListSelectionListener(e -> System.out.println(list1.getSelectedValue()));
+        String temp = "";
 
 
 
-        // call onCancel() when cross is clicked
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
@@ -76,12 +84,54 @@ public class UserMainScreen extends JDialog {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                DatabaseLayer db = new DatabaseLayer();
+                Sehir s1 = new Sehir(34,"İstanbul");
+                Sehir s2 = new Sehir(63,"Urfa");
+                if(fromBox.getSelectedItem().equals("İstanbul") && toBox.getSelectedItem().equals("Urfa")){
+                    fillError.setVisible(false);
+                    db.getSefer("İstanbul", "Urfa",s1, list1);
+                }else if(fromBox.getSelectedItem().equals("Urfa") && toBox.getSelectedItem().equals("İstanbul")){
+                    fillError.setVisible(false);
+                    db.getSefer("Urfa", "İstanbul",s2, list1);
+                }else if(fromBox.getSelectedItem().equals("Urfa") && toBox.getSelectedItem().equals("Urfa")){
+                    fillError.setText("Lütfen Değerleri Farklı Seçiniz!");
+                    fillError.setVisible(true);
+                }else if(fromBox.getSelectedItem().equals("İstanbul") && toBox.getSelectedItem().equals("İstanbul")){
+                    fillError.setText("Lütfen Değerleri Farklı Seçiniz!");
+                    fillError.setVisible(true);
+                }else{
+                    fillError.setText("Bilinmeyen Bir Hata OLuştu");
+                    fillError.setVisible(true);
+                }
+                //ImageIcon a = new ImageIcon("/Users/emre/IdeaProjects/odev/src/female.png");
+                //a1RadioButton.setIcon(a);
+                //Sefer s = new Sefer(2,1,6,63,14,15,"Emre");
+                //DatabaseLayer db = new DatabaseLayer();
+                //db.instertSefer(s);
+                //a1RadioButton.setOpaque(true);
+                //a1RadioButton.setBorderPainted(false);
+                //a1RadioButton.setBackground(Color.red);
+            }
+        });
+        list1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                String temp = (String) list1.getSelectedValue();
+                //System.out.println(temp.charAt(0));
+                DatabaseLayer db = new DatabaseLayer();
+                int[] a = db.getOtobus(1);
+                System.out.println(a[0] + " " + a[1]);
+
+            }
+        });
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
             }
         });
     }
-
     public static void main(String[] args){
-        UserMainScreen a = new UserMainScreen();
+        UserMainScreen usermainscreen = new UserMainScreen();
     }
 }
