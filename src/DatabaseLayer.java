@@ -2,13 +2,13 @@ import model.*;
 
 import javax.swing.*;
 import java.sql.*;
-import java.text.SimpleDateFormat;
+import java.util.HashMap;
 
 public class DatabaseLayer extends AbstractDatabaseLayer{
-    void insertYolcu(Kullanci kullanci){
+    void insertAdmin(Kullanci kullanci){
         if(con==null) connect();
         try {
-            String que = "insert into Yolcu(isim, soyisim,kullaniciAdi,sifre,cinsiyet,statu) values (?,?,?,?,?,?)";
+            String que = "insert into Admin(isim, soyisim,kullaniciAdi,sifre,cinsiyet,statu) values (?,?,?,?,?,?)";
             PreparedStatement add=con.prepareStatement(que);
             add.setString(1,kullanci.getIsim().toUpperCase());
             add.setString(2,kullanci.getSoyisim().toUpperCase());
@@ -21,11 +21,41 @@ public class DatabaseLayer extends AbstractDatabaseLayer{
             e.printStackTrace();
         }
     }
+    void insertYolcu(Yolcu yolcu){
+        if(con==null) connect();
+        try {
+            String que = "insert into Yolcu(isim,soyisim,telefon,cinsiyet,tc) values (?,?,?,?,?)";
+            PreparedStatement add=con.prepareStatement(que);
+            add.setString(1,yolcu.getIsim().toUpperCase());
+            add.setString(2,yolcu.getSoyisim().toUpperCase());
+            add.setString(3,yolcu.getTelefon());
+            add.setString(4,String.valueOf(yolcu.cinsiyet));
+            add.setString(5,yolcu.getTc());
+            add.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    int getYolcuId(Yolcu yolcu){
+        if(con == null) connect();
+        try {
+            PreparedStatement add = con.prepareStatement("select id from yolcu where tc = ?");
+            add.setString(1,yolcu.getTc());
+            ResultSet rs = add.executeQuery();
+            while(rs.next()){
+                return rs.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
     boolean checkLogin(String kullaniciAdi, String sifre){
         if(con==null) connect();
         try {
-            PreparedStatement add = con.prepareStatement("select kullaniciAdi,sifre from yolcu where kullaniciAdi = ? ");
+            PreparedStatement add = con.prepareStatement("select kullaniciAdi,sifre from admin where kullaniciAdi = ? ");
             add.setString(1,kullaniciAdi);
             ResultSet rs = add.executeQuery();
             if(rs.next()){
@@ -43,10 +73,6 @@ public class DatabaseLayer extends AbstractDatabaseLayer{
     void instertSefer(Sefer s){
         if(con == null) connect();
         try {
-            /*String pattern = "dd-MM-yyyy";
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-            String DepPick = simpleDateFormat.format(s.getKalkisTarihi());
-             */
             String que = "insert into sefer(id, otobus_id, plakaKoduKalkis, plakaKoduVaris, kalkisTarih, varisTarih, kaptan) values (?,?,?,?,?,?,?)";
             PreparedStatement add=con.prepareStatement(que);
             add.setInt(1,s.getId());
@@ -77,17 +103,34 @@ public class DatabaseLayer extends AbstractDatabaseLayer{
             e.printStackTrace();
         }
     }
-    int[] getOtobus(int seferId){
+    HashMap<Integer, Integer> getOtobus(int seferId){
         if(con == null) connect();
-        int[] temp = new int[2];
+        HashMap<Integer,Integer> temp = new HashMap<Integer,Integer>();
         try {
             PreparedStatement add = con.prepareStatement("select yolcu_id, sefer_id, koltuk_no from koltuk where sefer_id = ?");
             add.setInt(1,seferId);
             ResultSet rs = add.executeQuery();
-            int cout = 0;
             while(rs.next()){
-                temp[cout] = rs.getInt(3);
-                cout++;
+                temp.put(rs.getInt(3), rs.getInt(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return temp;
+    }
+
+    HashMap<Integer,String> getCinsiyet(HashMap<Integer,Integer> h){
+        if(con == null) connect();
+        HashMap<Integer,String> temp = new HashMap<Integer,String>();
+        try {
+            PreparedStatement add = con.prepareStatement("select id, cinsiyet from yolcu");
+            ResultSet rs = add.executeQuery();
+            while(rs.next()){
+                for (Integer i : h.keySet()) {
+                    if(rs.getInt(1) == h.get(i)){
+                        temp.put(i,rs.getString(2));
+                    }
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -99,10 +142,11 @@ public class DatabaseLayer extends AbstractDatabaseLayer{
     void insertKoltuk(Koltuk k) {
         if (con == null) connect();
         try {
-            String que = "insert into koltuk(yolcu_id,sefer_id) values (?,?)";
+            String que = "insert into koltuk (sefer_id, yolcu_id, koltuk_no) values (?, ?, ?)";
             PreparedStatement add = con.prepareStatement(que);
-            add.setInt(1,k.getYolcu_id());
-            add.setInt(2,k.getSefer_id());
+            add.setInt(1,k.getSefer_id());
+            add.setInt(2,k.getYolcu_id());
+            add.setInt(3,k.getKoltukNo());
             add.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

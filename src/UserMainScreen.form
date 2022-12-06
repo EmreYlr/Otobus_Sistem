@@ -3,12 +3,12 @@
   <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="38" y="50" width="1004" height="583"/>
+      <xy x="38" y="50" width="1124" height="650"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="e3588" layout-manager="GridLayoutManager" row-count="5" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="e3588" layout-manager="GridLayoutManager" row-count="6" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -66,15 +66,10 @@
               <text value="Submit"/>
             </properties>
           </component>
-          <vspacer id="4e02e">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </vspacer>
-          <grid id="ec182" layout-manager="GridLayoutManager" row-count="11" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="-1">
+          <grid id="ec182" binding="otobusPanel" layout-manager="GridLayoutManager" row-count="11" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="-1">
             <margin top="2" left="2" bottom="2" right="2"/>
             <constraints>
-              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="2" use-parent-layout="false">
+              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="2" use-parent-layout="false">
                 <minimum-size width="300" height="400"/>
                 <maximum-size width="300" height="400"/>
               </grid>
@@ -87,7 +82,7 @@
               <title-color color="-4473925"/>
             </border>
             <children>
-              <component id="7a755" class="javax.swing.JRadioButton" binding="a7RadioButton">
+              <component id="7a755" class="javax.swing.JRadioButton" binding="a7">
                 <constraints>
                   <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -100,7 +95,7 @@
                   <text value="7"/>
                 </properties>
               </component>
-              <component id="13db2" class="javax.swing.JRadioButton" binding="a3RadioButton" default-binding="true">
+              <component id="13db2" class="javax.swing.JRadioButton" binding="a3">
                 <constraints>
                   <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -113,33 +108,7 @@
                   <text value="3"/>
                 </properties>
               </component>
-              <component id="33b49" class="javax.swing.JRadioButton" binding="a2RadioButton" default-binding="true">
-                <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <actionCommand value="2" noi18n="true"/>
-                  <borderPainted value="false"/>
-                  <icon value="empty.png"/>
-                  <margin top="1" left="0" bottom="0" right="0"/>
-                  <selectedIcon value="selected.png"/>
-                  <text value="2"/>
-                </properties>
-              </component>
-              <component id="62212" class="javax.swing.JRadioButton" binding="a6RadioButton" default-binding="true">
-                <constraints>
-                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <actionCommand value="6" noi18n="true"/>
-                  <borderPainted value="false"/>
-                  <icon value="empty.png"/>
-                  <margin top="1" left="0" bottom="0" right="0"/>
-                  <selectedIcon value="selected.png"/>
-                  <text value="6"/>
-                </properties>
-              </component>
-              <component id="cf425" class="javax.swing.JRadioButton" binding="a5RadioButton" default-binding="true">
+              <component id="cf425" class="javax.swing.JRadioButton" binding="a5">
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -153,7 +122,7 @@
                   <verticalTextPosition value="1"/>
                 </properties>
               </component>
-              <component id="4291f" class="javax.swing.JRadioButton" binding="a4RadioButton" default-binding="true">
+              <component id="4291f" class="javax.swing.JRadioButton" binding="a4">
                 <constraints>
                   <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -166,7 +135,7 @@
                   <text value="4"/>
                 </properties>
               </component>
-              <component id="b232b" class="javax.swing.JRadioButton" binding="a12RadioButton" default-binding="true">
+              <component id="b232b" class="javax.swing.JRadioButton" binding="a12">
                 <constraints>
                   <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -179,7 +148,7 @@
                   <text value="12"/>
                 </properties>
               </component>
-              <component id="130f0" class="javax.swing.JRadioButton" binding="a8RadioButton1" default-binding="true">
+              <component id="130f0" class="javax.swing.JRadioButton" binding="a8">
                 <constraints>
                   <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -192,7 +161,7 @@
                   <text value="8"/>
                 </properties>
               </component>
-              <component id="faf8a" class="javax.swing.JRadioButton" binding="a11RadioButton" default-binding="true">
+              <component id="faf8a" class="javax.swing.JRadioButton" binding="a11">
                 <constraints>
                   <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -205,7 +174,7 @@
                   <text value="11"/>
                 </properties>
               </component>
-              <component id="80c99" class="javax.swing.JRadioButton" binding="a10RadioButton" default-binding="true">
+              <component id="80c99" class="javax.swing.JRadioButton" binding="a10">
                 <constraints>
                   <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -218,7 +187,7 @@
                   <text value="10"/>
                 </properties>
               </component>
-              <component id="bc10b" class="javax.swing.JRadioButton" binding="a9RadioButton" default-binding="true">
+              <component id="bc10b" class="javax.swing.JRadioButton" binding="a9">
                 <constraints>
                   <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -232,7 +201,7 @@
                   <verticalTextPosition value="1"/>
                 </properties>
               </component>
-              <component id="f111d" class="javax.swing.JRadioButton" binding="a13RadioButton">
+              <component id="f111d" class="javax.swing.JRadioButton" binding="a13">
                 <constraints>
                   <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -246,7 +215,7 @@
                   <verticalTextPosition value="0"/>
                 </properties>
               </component>
-              <component id="26d1f" class="javax.swing.JRadioButton" binding="a14RadioButton">
+              <component id="26d1f" class="javax.swing.JRadioButton" binding="a14">
                 <constraints>
                   <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -259,7 +228,7 @@
                   <text value="14"/>
                 </properties>
               </component>
-              <component id="fcea2" class="javax.swing.JRadioButton" binding="a15RadioButton">
+              <component id="fcea2" class="javax.swing.JRadioButton" binding="a15">
                 <constraints>
                   <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -272,7 +241,7 @@
                   <text value="15"/>
                 </properties>
               </component>
-              <component id="d75c3" class="javax.swing.JRadioButton" binding="a16RadioButton">
+              <component id="d75c3" class="javax.swing.JRadioButton" binding="a16">
                 <constraints>
                   <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -285,7 +254,7 @@
                   <text value="16"/>
                 </properties>
               </component>
-              <component id="3dd60" class="javax.swing.JRadioButton" binding="a17RadioButton" default-binding="true">
+              <component id="3dd60" class="javax.swing.JRadioButton" binding="a17">
                 <constraints>
                   <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -299,7 +268,7 @@
                   <verticalTextPosition value="0"/>
                 </properties>
               </component>
-              <component id="f064e" class="javax.swing.JRadioButton" binding="a18RadioButton">
+              <component id="f064e" class="javax.swing.JRadioButton" binding="a18">
                 <constraints>
                   <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -312,7 +281,7 @@
                   <text value="18"/>
                 </properties>
               </component>
-              <component id="febfe" class="javax.swing.JRadioButton" binding="a19RadioButton">
+              <component id="febfe" class="javax.swing.JRadioButton" binding="a19">
                 <constraints>
                   <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -326,7 +295,7 @@
                   <text value="19"/>
                 </properties>
               </component>
-              <component id="40dc" class="javax.swing.JRadioButton" binding="a20RadioButton">
+              <component id="40dc" class="javax.swing.JRadioButton" binding="a20">
                 <constraints>
                   <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -339,7 +308,7 @@
                   <text value="20"/>
                 </properties>
               </component>
-              <component id="cfc06" class="javax.swing.JRadioButton" binding="a21RadioButton" default-binding="true">
+              <component id="cfc06" class="javax.swing.JRadioButton" binding="a21">
                 <constraints>
                   <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -353,7 +322,7 @@
                   <verticalTextPosition value="0"/>
                 </properties>
               </component>
-              <component id="b4ab6" class="javax.swing.JRadioButton" binding="a22RadioButton">
+              <component id="b4ab6" class="javax.swing.JRadioButton" binding="a22">
                 <constraints>
                   <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -366,7 +335,7 @@
                   <text value="22"/>
                 </properties>
               </component>
-              <component id="5d7d0" class="javax.swing.JRadioButton" binding="a23RadioButton" default-binding="true">
+              <component id="5d7d0" class="javax.swing.JRadioButton" binding="a23">
                 <constraints>
                   <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -380,7 +349,7 @@
                   <verticalTextPosition value="0"/>
                 </properties>
               </component>
-              <component id="b1e1a" class="javax.swing.JRadioButton" binding="a24RadioButton">
+              <component id="b1e1a" class="javax.swing.JRadioButton" binding="a24">
                 <constraints>
                   <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -393,7 +362,7 @@
                   <text value="24"/>
                 </properties>
               </component>
-              <component id="58969" class="javax.swing.JRadioButton" binding="a25RadioButton">
+              <component id="58969" class="javax.swing.JRadioButton" binding="a25">
                 <constraints>
                   <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -406,7 +375,7 @@
                   <text value="25"/>
                 </properties>
               </component>
-              <component id="ad5e7" class="javax.swing.JRadioButton" binding="a26RadioButton">
+              <component id="ad5e7" class="javax.swing.JRadioButton" binding="a26">
                 <constraints>
                   <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -419,7 +388,7 @@
                   <text value="26"/>
                 </properties>
               </component>
-              <component id="87175" class="javax.swing.JRadioButton" binding="a27RadioButton" default-binding="true">
+              <component id="87175" class="javax.swing.JRadioButton" binding="a27">
                 <constraints>
                   <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -433,7 +402,7 @@
                   <verticalTextPosition value="0"/>
                 </properties>
               </component>
-              <component id="f70ae" class="javax.swing.JRadioButton" binding="a28RadioButton">
+              <component id="f70ae" class="javax.swing.JRadioButton" binding="a28">
                 <constraints>
                   <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -446,7 +415,7 @@
                   <text value="28"/>
                 </properties>
               </component>
-              <component id="d31f1" class="javax.swing.JRadioButton" binding="a29RadioButton">
+              <component id="d31f1" class="javax.swing.JRadioButton" binding="a29">
                 <constraints>
                   <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -459,7 +428,7 @@
                   <text value="29"/>
                 </properties>
               </component>
-              <component id="5c50a" class="javax.swing.JRadioButton" binding="a30RadioButton">
+              <component id="5c50a" class="javax.swing.JRadioButton" binding="a30">
                 <constraints>
                   <grid row="8" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -472,7 +441,7 @@
                   <text value="30"/>
                 </properties>
               </component>
-              <component id="c3328" class="javax.swing.JRadioButton" binding="a31RadioButton" default-binding="true">
+              <component id="c3328" class="javax.swing.JRadioButton" binding="a31">
                 <constraints>
                   <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -486,7 +455,7 @@
                   <verticalTextPosition value="0"/>
                 </properties>
               </component>
-              <component id="a0fca" class="javax.swing.JRadioButton" binding="a32RadioButton">
+              <component id="a0fca" class="javax.swing.JRadioButton" binding="a32">
                 <constraints>
                   <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -499,7 +468,7 @@
                   <text value="32"/>
                 </properties>
               </component>
-              <component id="c6e97" class="javax.swing.JRadioButton" binding="a33RadioButton">
+              <component id="c6e97" class="javax.swing.JRadioButton" binding="a33">
                 <constraints>
                   <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -512,7 +481,7 @@
                   <text value="33"/>
                 </properties>
               </component>
-              <component id="81b39" class="javax.swing.JRadioButton" binding="a34RadioButto">
+              <component id="81b39" class="javax.swing.JRadioButton" binding="a34">
                 <constraints>
                   <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -525,7 +494,7 @@
                   <text value="34"/>
                 </properties>
               </component>
-              <component id="d1d34" class="javax.swing.JRadioButton" binding="a35RadioButton" default-binding="true">
+              <component id="d1d34" class="javax.swing.JRadioButton" binding="a35">
                 <constraints>
                   <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -539,7 +508,7 @@
                   <verticalTextPosition value="0"/>
                 </properties>
               </component>
-              <component id="95ab6" class="javax.swing.JRadioButton" binding="a36RadioButton">
+              <component id="95ab6" class="javax.swing.JRadioButton" binding="a36">
                 <constraints>
                   <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -552,7 +521,7 @@
                   <text value="36"/>
                 </properties>
               </component>
-              <component id="d0af9" class="javax.swing.JRadioButton" binding="a37RadioButton">
+              <component id="d0af9" class="javax.swing.JRadioButton" binding="a37">
                 <constraints>
                   <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -565,7 +534,7 @@
                   <text value="37"/>
                 </properties>
               </component>
-              <component id="3cfaa" class="javax.swing.JRadioButton" binding="a38RadioButton">
+              <component id="3cfaa" class="javax.swing.JRadioButton" binding="a38">
                 <constraints>
                   <grid row="10" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -702,7 +671,7 @@
                   </component>
                 </children>
               </grid>
-              <component id="fe245" class="javax.swing.JRadioButton" binding="a1RadioButton">
+              <component id="fe245" class="javax.swing.JRadioButton" binding="a1">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -720,17 +689,44 @@
                   <text value="1"/>
                 </properties>
               </component>
+              <component id="33b49" class="javax.swing.JRadioButton" binding="a2">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <actionCommand value="2" noi18n="true"/>
+                  <borderPainted value="false"/>
+                  <icon value="empty.png"/>
+                  <margin top="1" left="0" bottom="0" right="0"/>
+                  <selectedIcon value="selected.png"/>
+                  <text value="2"/>
+                </properties>
+              </component>
+              <component id="c3d6b" class="javax.swing.JRadioButton" binding="a6">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <actionCommand value="6" noi18n="true"/>
+                  <borderPainted value="false"/>
+                  <icon value="empty.png"/>
+                  <margin top="1" left="0" bottom="0" right="0"/>
+                  <selectedIcon value="selected.png"/>
+                  <text value="6"/>
+                </properties>
+              </component>
             </children>
           </grid>
-          <grid id="6f842" layout-manager="GridLayoutManager" row-count="6" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="10">
+          <grid id="6f842" binding="ticketPanel" layout-manager="GridLayoutManager" row-count="8" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="10">
             <margin top="10" left="10" bottom="0" right="10"/>
             <constraints>
-              <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="5" column="3" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <maximum-size width="-1" height="400"/>
               </grid>
             </constraints>
             <properties>
               <enabled value="true"/>
+              <visible value="true"/>
             </properties>
             <border type="line"/>
             <children>
@@ -747,7 +743,7 @@
               </component>
               <component id="2a0d0" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <enabled value="true"/>
@@ -756,16 +752,16 @@
               </component>
               <component id="88f80" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <enabled value="true"/>
                   <text value="Cinsiyet"/>
                 </properties>
               </component>
-              <component id="318d6" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+              <component id="318d6" class="javax.swing.JTextField" binding="adField">
                 <constraints>
-                  <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="0" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                     <maximum-size width="150" height="100"/>
                   </grid>
@@ -774,20 +770,9 @@
                   <enabled value="true"/>
                 </properties>
               </component>
-              <component id="db97e" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+              <component id="8d194" class="javax.swing.JComboBox" binding="cinsiyetBox">
                 <constraints>
-                  <grid row="1" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                    <maximum-size width="150" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties>
-                  <enabled value="true"/>
-                </properties>
-              </component>
-              <component id="8d194" class="javax.swing.JComboBox" binding="comboBox3" default-binding="true">
-                <constraints>
-                  <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="4" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
                     <maximum-size width="150" height="-1"/>
                   </grid>
@@ -801,36 +786,84 @@
                   <selectedIndex value="-1"/>
                 </properties>
               </component>
+              <component id="ffa53" class="javax.swing.JLabel" binding="kontrolField">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <foreground color="-4521982"/>
+                  <text value="Label"/>
+                  <visible value="false"/>
+                </properties>
+              </component>
+              <component id="89d2c" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Telefon"/>
+                </properties>
+              </component>
               <vspacer id="fbf26">
                 <constraints>
-                  <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
-              <component id="cf758" class="javax.swing.JButton" binding="saveButton">
+              <component id="db97e" class="javax.swing.JTextField" binding="soyadField">
                 <constraints>
-                  <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                  <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
                     <maximum-size width="150" height="-1"/>
                   </grid>
                 </constraints>
                 <properties>
-                  <text value="Button"/>
+                  <enabled value="true"/>
                 </properties>
               </component>
-              <component id="ffa53" class="javax.swing.JLabel">
+              <component id="9e775" class="javax.swing.JTextField" binding="telefonField">
                 <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                    <maximum-size width="150" height="-1"/>
+                  </grid>
                 </constraints>
                 <properties>
-                  <text value="Label"/>
+                  <enabled value="true"/>
+                </properties>
+              </component>
+              <component id="d9c53" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Tc"/>
+                </properties>
+              </component>
+              <component id="b4b22" class="javax.swing.JTextField" binding="tcField">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                    <maximum-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <enabled value="true"/>
+                </properties>
+              </component>
+              <component id="cf758" class="javax.swing.JButton" binding="saveButton">
+                <constraints>
+                  <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="89" height="34"/>
+                    <maximum-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <margin top="0" left="0" bottom="0" right="0"/>
+                  <text value="Submit"/>
                 </properties>
               </component>
             </children>
           </grid>
-          <hspacer id="cf1f1">
-            <constraints>
-              <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-          </hspacer>
           <component id="65742" class="javax.swing.JLabel" binding="fillError">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -842,14 +875,43 @@
               <visible value="false"/>
             </properties>
           </component>
-          <component id="5a86" class="javax.swing.JList" binding="list1" default-binding="true">
+          <component id="5a86" class="javax.swing.JList" binding="seferList">
             <constraints>
-              <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
+              <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="350" height="50"/>
               </grid>
             </constraints>
             <properties/>
           </component>
+          <component id="88e1e" class="javax.swing.JButton" binding="exitField">
+            <constraints>
+              <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Çıkış Yap"/>
+            </properties>
+          </component>
+          <component id="28a1f" class="javax.swing.JButton" binding="kullaniciDuzenleButton">
+            <constraints>
+              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Kullanıcı Düzenle"/>
+            </properties>
+          </component>
+          <component id="d7d7a" class="javax.swing.JButton" binding="yeniSeferButton">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Yeni Sefer Ekle"/>
+            </properties>
+          </component>
+          <vspacer id="13d0">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
         </children>
       </grid>
     </children>
@@ -895,6 +957,7 @@
       <member id="d0af9"/>
       <member id="3cfaa"/>
       <member id="fe245"/>
+      <member id="c3d6b"/>
     </group>
   </buttonGroups>
 </form>

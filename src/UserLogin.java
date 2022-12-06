@@ -14,12 +14,13 @@ public class UserLogin{
     private JLabel fillGaps;
     JFrame frame;
     public UserLogin() {
-        frame = new JFrame("");
+        frame = new JFrame("Giriş Ekranı");
         frame.setSize(550, 400);
         frame.add(contentPanel);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+
         signUpHyperText.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -41,6 +42,7 @@ public class UserLogin{
                         frame.dispose();
                         fillGaps.setVisible(false);
                         JOptionPane.showMessageDialog(null, "Giriş Başarılı");
+                        UserMainScreen usermainscreen = new UserMainScreen();
                     }
                     else{
                         JOptionPane.showMessageDialog(null,"Hatalı Giriş!", "Error", JOptionPane.ERROR_MESSAGE);

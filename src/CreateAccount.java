@@ -20,7 +20,7 @@ public class CreateAccount  {
 
     public CreateAccount() {
         db = new DatabaseLayer();
-        JFrame frame = new JFrame("");
+        JFrame frame = new JFrame("Kayıt Ekranı");
         frame.setSize(550, 400);
         frame.add(contentPanel);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -38,12 +38,12 @@ public class CreateAccount  {
 
                     }else{
                         if(maleRadioButton.isSelected()){
-                            Kullanci user = new Yolcu(nameField.getText(), lastNameField.getText(), userNameField.getText(), passwordField.getText(), Kullanci.Cinsiyet.erkek);
-                            db.insertYolcu(user);
+                            Kullanci user = new Admin(nameField.getText(), lastNameField.getText(), userNameField.getText(), passwordField.getText(), Kullanci.Cinsiyet.erkek);
+                            db.insertAdmin(user);
 
                         }else{
-                            Kullanci user = new Yolcu(nameField.getText(), lastNameField.getText(), userNameField.getText(), passwordField.getText(), Kullanci.Cinsiyet.kadin);
-                            db.insertYolcu(user);
+                            Kullanci user = new Admin(nameField.getText(), lastNameField.getText(), userNameField.getText(), passwordField.getText(), Kullanci.Cinsiyet.kadin);
+                            db.insertAdmin(user);
                         }
                         fillGaps.setVisible(false);
                         JOptionPane.showMessageDialog(null, "Hesap başarılı bir şekilde oluşturuldu.");
@@ -56,6 +56,7 @@ public class CreateAccount  {
         buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 UserLogin login = new UserLogin();
+                frame.dispose();
             }
         });
 
