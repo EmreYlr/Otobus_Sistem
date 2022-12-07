@@ -6,6 +6,15 @@ public class Kullanci {
     public Cinsiyet cinsiyet;
     public Statu statu;
     protected int id;
+
+    public Cinsiyet getCinsiyet() {
+        return cinsiyet;
+    }
+
+    public void setCinsiyet(Cinsiyet cinsiyet) {
+        this.cinsiyet = cinsiyet;
+    }
+
     protected String isim;
     protected String soyisim;
     protected String sifre;

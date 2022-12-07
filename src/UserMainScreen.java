@@ -216,7 +216,7 @@ public class UserMainScreen extends JDialog {
         kullaniciDuzenleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                UserUpdateScreen userupdatescreen = new UserUpdateScreen();
+                UserUpdateList userupdatelist = new UserUpdateList();
             }
         });
         yeniSeferButton.addActionListener(new ActionListener() {

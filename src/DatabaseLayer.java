@@ -3,6 +3,7 @@ import model.*;
 import javax.swing.*;
 import java.sql.*;
 import java.util.HashMap;
+import java.util.List;
 
 public class DatabaseLayer extends AbstractDatabaseLayer{
     void insertAdmin(Kullanci kullanci){
@@ -50,6 +51,58 @@ public class DatabaseLayer extends AbstractDatabaseLayer{
             e.printStackTrace();
         }
         return 0;
+    }
+    void getYolcu(List<Yolcu> list){
+        if(con == null) connect();
+        try {
+            PreparedStatement add = con.prepareStatement("select isim, soyisim, telefon, cinsiyet,tc from yolcu");
+            ResultSet rs = add.executeQuery();
+            while(rs.next()){
+                if(rs.getString(4).equals("erkek")){
+                    list.add(new Yolcu(rs.getString(1), rs.getString(2),rs.getString(3),null,null,rs.getString(5),Kullanci.Cinsiyet.erkek, null));
+                }else{
+                    list.add(new Yolcu(rs.getString(1), rs.getString(2),rs.getString(3),null,null,rs.getString(5),Kullanci.Cinsiyet.kadin, null));
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    void getKoltuk(List<Koltuk> list){
+        if(con == null) connect();
+        try {
+            PreparedStatement add = con.prepareStatement("select yolcu_id, sefer_id, koltuk_no from koltuk;");
+            ResultSet rs = add.executeQuery();
+            while(rs.next()){
+                list.add(new Koltuk(rs.getInt(1), rs.getInt(2), rs.getInt(3)));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void updateYolcu(String[] temp, String[] tempUpdate){
+        if(con==null) connect();
+        try {
+            PreparedStatement add=con.prepareStatement("update yolcu set isim = ?, soyisim = ?, telefon = ?, cinsiyet = ?, tc = ? where tc = ?");
+            add.setString(1,tempUpdate[1]);
+            add.setString(2,tempUpdate[2]);
+            add.setString(3,tempUpdate[3]);
+            add.setString(4,tempUpdate[4]);
+            add.setString(5,tempUpdate[0]);
+            add.setString(6,temp[0]);
+            PreparedStatement add2=con.prepareStatement("update koltuk set sefer_id = ?, koltuk_no = ? where sefer_id = ? and koltuk_no = ?");
+            add2.setString(1,tempUpdate[5]);
+            add2.setString(2,tempUpdate[6]);
+            add2.setString(3,temp[5]);
+            add2.setString(4,temp[6]);
+            add2.executeUpdate();
+            add.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     boolean checkLogin(String kullaniciAdi, String sifre){
