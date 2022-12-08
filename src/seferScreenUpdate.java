@@ -16,7 +16,7 @@ public class seferScreenUpdate extends JDialog {
 
     public seferScreenUpdate(String[] temp, JFrame x) {
         JFrame frame = new JFrame("Sefer Düzenle");
-        frame.setSize(300, 300);
+        frame.setSize(300, 350);
         frame.add(contentPane);
         frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setLocationRelativeTo(null);
