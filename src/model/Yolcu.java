@@ -4,6 +4,7 @@ public class Yolcu extends Kullanci {
     String telefon;
     String tc;
 
+
     public String getTc() {
         return tc;
     }

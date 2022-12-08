@@ -52,6 +52,31 @@ public class DatabaseLayer extends AbstractDatabaseLayer{
         }
         return 0;
     }
+
+    void getSeferList(List<Sefer> list){
+        if(con == null) connect();
+        try {
+            PreparedStatement add = con.prepareStatement("select id, plakaKoduKalkis,plakaKoduVaris, kalkisTarih,varisTarih,kaptan from sefer");
+            ResultSet rs = add.executeQuery();
+            while(rs.next()){
+                list.add(new Sefer(rs.getInt(1),0, rs.getInt(2),rs.getInt(3), rs.getString(4), rs.getString(5),rs.getString(6)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    void getOtobusList(List<Otobus> list){
+        if(con == null) connect();
+        try {
+            PreparedStatement add = con.prepareStatement("select plaka,kapasite from otobus");
+            ResultSet rs = add.executeQuery();
+            while(rs.next()){
+                list.add(new Otobus(rs.getString(1),rs.getInt(2)));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     void getYolcu(List<Yolcu> list){
         if(con == null) connect();
         try {
@@ -104,6 +129,36 @@ public class DatabaseLayer extends AbstractDatabaseLayer{
             e.printStackTrace();
         }
     }
+    void updateSefer(String[] temp, String[] tempUpdate){
+        if(con==null) connect();
+        try {
+            PreparedStatement add=con.prepareStatement("update sefer set id = ?, plakaKoduKalkis = ?, plakaKoduVaris = ?, kalkisTarih = ?, varisTarih = ?, kaptan = ? where id = ?");
+            add.setString(1,tempUpdate[0]);
+            if(tempUpdate[1].equals("İstanbul")){
+                add.setInt(2,34);
+            }else{
+                add.setInt(2,63);
+            }
+            if(tempUpdate[2].equals("Urfa")){
+                add.setInt(3,63);
+            }else{
+                add.setInt(3,34);
+            }
+
+            add.setString(4,tempUpdate[3]);
+            add.setString(5,tempUpdate[4]);
+            add.setString(6,tempUpdate[5]);
+            add.setString(7,temp[0]);
+            PreparedStatement add2=con.prepareStatement("update otobus set plaka = ?, kapasite = ? where plaka = ?");
+            add2.setString(1,tempUpdate[6]);
+            add2.setString(2,tempUpdate[7]);
+            add2.setString(3,temp[6]);
+            add2.executeUpdate();
+            add.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     void yolcuSil(String[] temp){
         if(con==null) connect();
@@ -115,6 +170,19 @@ public class DatabaseLayer extends AbstractDatabaseLayer{
             add2.setString(2,temp[2]);
             add2.executeUpdate();
             add.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    void seferSil(String[] temp){
+        if(con==null) connect();
+        try {
+            PreparedStatement add=con.prepareStatement("delete from sefer where id = ?");
+            add.setString(1,temp[0]);
+            PreparedStatement add2=con.prepareStatement("delete from otobus where plaka = ?");
+            add2.setString(1,temp[1]);
+            add.executeUpdate();
+            add2.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -141,27 +209,68 @@ public class DatabaseLayer extends AbstractDatabaseLayer{
     void instertSefer(Sefer s){
         if(con == null) connect();
         try {
-            String que = "insert into sefer(id, otobus_id, plakaKoduKalkis, plakaKoduVaris, kalkisTarih, varisTarih, kaptan) values (?,?,?,?,?,?,?)";
+            String que = "insert into sefer(otobus_id, plakaKoduKalkis, plakaKoduVaris, kalkisTarih, varisTarih, kaptan) values (?,?,?,?,?,?)";
             PreparedStatement add=con.prepareStatement(que);
-            add.setInt(1,s.getId());
-            add.setInt(2,s.getOtobus_id());
-            add.setInt(3,s.getPlakaKoduKalkis());
-            add.setInt(4,s.getPlakaKoduVaris());
-            add.setString(5, s.getKalkisTarihi());
-            add.setString(6, s.getVarisTarihi());
-            add.setString(7,s.getKaptan());
+            add.setInt(1,s.getOtobus_id());
+            add.setInt(2,s.getPlakaKoduKalkis());
+            add.setInt(3,s.getPlakaKoduVaris());
+            add.setString(4, s.getKalkisTarihi());
+            add.setString(5, s.getVarisTarihi());
+            add.setString(6,s.getKaptan());
             add.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+    void instertOtobus(Otobus o){
+        if(con == null) connect();
+        try {
+            String que = "insert into otobus(plaka, kapasite) values (?,?)";
+            PreparedStatement add=con.prepareStatement(que);
+            add.setString(1,o.getPlaka());
+            add.setInt(2,o.getKapasite());
+            add.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    int getOtobusId(Otobus o){
+        if(con == null) connect();
+        try {
+            String que = "select id from otobus where plaka = ?";
+            PreparedStatement add=con.prepareStatement(que);
+            add.setString(1,o.getPlaka());
+            ResultSet rs = add.executeQuery();
+            if(rs.next()){
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    int getSeferId(int o){
+        if(con == null) connect();
+        try {
+            String que = "select id from sefer where otobus_id = ?";
+            PreparedStatement add=con.prepareStatement(que);
+            add.setInt(1,o);
+            ResultSet rs = add.executeQuery();
+            if(rs.next()){
+                return rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
-    void getSefer(String s1, String s2,Sehir sehir, JList list){
+    void getSefer(String s1, String s2,Sehir s,JList list){
         if(con==null) connect();
         DefaultListModel model = new DefaultListModel<>();
         try {
-            PreparedStatement add = con.prepareStatement("select kalkisTarih, varisTarih, otobus_id from sefer where plakaKoduKalkis = ?");
-            add.setInt(1,sehir.getPlakaKodu());
+            PreparedStatement add = con.prepareStatement("select kalkisTarih, varisTarih, id from sefer where plakaKoduKalkis = ?");
+            add.setInt(1,s.getPlakaKodu());
             ResultSet rs = add.executeQuery();
             while (rs.next()){
                 model.addElement(rs.getInt(3)+" "+ s1 +" "+ rs.getString(1) +"--->"+ s2 + " " + rs.getString(2));

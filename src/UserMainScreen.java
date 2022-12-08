@@ -100,14 +100,14 @@ public class UserMainScreen extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 DatabaseLayer db = new DatabaseLayer();
-                Sehir s1 = new Sehir(34,"İstanbul");
-                Sehir s2 = new Sehir(63,"Urfa");
+                Sehir s = new Sehir(34, "İstanbul");
+                Sehir s1 = new Sehir(63, "Urfa");
                 if(fromBox.getSelectedItem().equals("İstanbul") && toBox.getSelectedItem().equals("Urfa")){
                     fillError.setVisible(false);
-                    db.getSefer("İstanbul", "Urfa",s1, seferList);
+                    db.getSefer("İstanbul", "Urfa", s,seferList);
                 }else if(fromBox.getSelectedItem().equals("Urfa") && toBox.getSelectedItem().equals("İstanbul")){
                     fillError.setVisible(false);
-                    db.getSefer("Urfa", "İstanbul",s2, seferList);
+                    db.getSefer("Urfa", "İstanbul",s1, seferList);
                 }else if(fromBox.getSelectedItem().equals("Urfa") && toBox.getSelectedItem().equals("Urfa")){
                     fillError.setText("Lütfen Değerleri Farklı Seçiniz!");
                     fillError.setVisible(true);
@@ -118,14 +118,6 @@ public class UserMainScreen extends JDialog {
                     fillError.setText("Bilinmeyen Bir Hata OLuştu");
                     fillError.setVisible(true);
                 }
-                //ImageIcon a = new ImageIcon("/Users/emre/IdeaProjects/odev/src/female.png");
-                //a1.setIcon(a);
-                //Sefer s = new Sefer(2,1,6,63,14,15,"Emre");
-                //DatabaseLayer db = new DatabaseLayer();
-                //db.instertSefer(s);
-                //a1.setOpaque(true);
-                //a1.setBorderPainted(false);
-                //a1.setBackground(Color.red);
             }
         });
         seferList.addMouseListener(new MouseAdapter() {
@@ -138,14 +130,13 @@ public class UserMainScreen extends JDialog {
                     b.setEnabled(true);
                 }
                 String temp = (String) seferList.getSelectedValue();
-                seferId = Character.getNumericValue(temp.charAt(0));
+                String[] a = temp.split("\\s");
+                seferId = Integer.parseInt(a[0]);
                 DatabaseLayer db = new DatabaseLayer();
                 HashMap<Integer, Integer> test = db.getOtobus(seferId);
                 HashMap<Integer, String> test2 =  db.getCinsiyet(test);
 
                 for (Integer i : test2.keySet()) {
-                    //System.out.println("koltuk no: " + i + " Cinsiyet: " + test2.get(i));
-                    //koltukKontrol(i,test2.get(i));
                     if(test2.get(i).equals("erkek")){
                         for (JRadioButton b: list){
                             if((Integer.parseInt(b.getText())) == i){
@@ -210,14 +201,14 @@ public class UserMainScreen extends JDialog {
                         JOptionPane.QUESTION_MESSAGE);
                 if(result == JOptionPane.YES_NO_OPTION){
                     frame.dispose();
-                    UserLogin login = new UserLogin();
+                    new UserLogin();
                 }
             }
         });
         kullaniciDuzenleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                UserUpdateList userupdatelist = new UserUpdateList();
+                new UserUpdateList();
             }
         });
         yenileButton.addActionListener(new ActionListener() {
@@ -230,9 +221,10 @@ public class UserMainScreen extends JDialog {
         seferEkleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //yeni sefer ekranı
+                new seferScreen();
             }
         });
+
     }
     void koltuk(List <JRadioButton> list){
         list.add(a1);

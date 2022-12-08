@@ -3,10 +3,7 @@ import model.Kullanci;
 import model.Yolcu;
 
 import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableRowSorter;
+import javax.swing.table.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -25,7 +22,6 @@ public class UserUpdateList extends JDialog {
     private Yolcu selectYolcu;
     private Koltuk selectKoltuk;
     private int selectedIndex;
-    //public String[] getdata = new String[7];
     public UserUpdateList() {
         JFrame frame;
         frame = new JFrame("Kullanıcı Listesi");
@@ -45,6 +41,21 @@ public class UserUpdateList extends JDialog {
         table1.setAutoCreateRowSorter(true);
         duzenleButton.setEnabled(false);
         silButton.setEnabled(false);
+
+
+        DefaultTableCellRenderer left = new DefaultTableCellRenderer();
+        left.setHorizontalAlignment(JLabel.LEFT);
+
+        table1.getColumnModel().getColumn(0).setPreferredWidth(100);
+        table1.getColumnModel().getColumn(1).setPreferredWidth(50);
+        table1.getColumnModel().getColumn(2).setPreferredWidth(50);
+        table1.getColumnModel().getColumn(3).setPreferredWidth(100);
+        table1.getColumnModel().getColumn(4).setPreferredWidth(50);
+        table1.getColumnModel().getColumn(5).setPreferredWidth(20);
+        table1.getColumnModel().getColumn(6).setPreferredWidth(20);
+        table1.setAutoResizeMode(JTable.AUTO_RESIZE_LAST_COLUMN);
+        table1.getColumnModel().getColumn(5).setCellRenderer(left);
+        table1.getColumnModel().getColumn(6).setCellRenderer(left);
 
         table1.getSelectionModel().addListSelectionListener(e->{
             duzenleButton.setEnabled(true);

@@ -19,6 +19,19 @@ public class Sefer {
     private String kalkisTarihi;
     private String varisTarihi;
     private String kaptan;
+    public Sefer(){
+
+    }
+
+    public Sefer(int id, int otobus_id, int plakaKoduKalkis, int plakaKoduVaris, String kalkisTarihi, String varisTarihi, String kaptan) {
+        this.id = id;
+        this.otobus_id = otobus_id;
+        this.plakaKoduKalkis = plakaKoduKalkis;
+        this.plakaKoduVaris = plakaKoduVaris;
+        this.kalkisTarihi = kalkisTarihi;
+        this.varisTarihi = varisTarihi;
+        this.kaptan = kaptan;
+    }
 
     public int getOtobus_id() {
         return otobus_id;
@@ -70,13 +83,5 @@ public class Sefer {
         this.varisTarihi = varisTarihi;
     }
 
-    public Sefer(int id, int otobus_id, int plakaKoduKalkis, int plakaKoduVaris, String kalkisTarihi, String varisTarihi, String kaptan) {
-        this.id = id;
-        this.otobus_id = otobus_id;
-        this.plakaKoduKalkis = plakaKoduKalkis;
-        this.plakaKoduVaris = plakaKoduVaris;
-        this.kalkisTarihi = kalkisTarihi;
-        this.varisTarihi = varisTarihi;
-        this.kaptan = kaptan;
-    }
+
 }
