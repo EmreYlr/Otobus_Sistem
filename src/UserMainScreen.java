@@ -66,6 +66,8 @@ public class UserMainScreen extends JDialog {
     private JButton kullaniciDuzenleButton;
     private JButton yeniSeferButton;
     private JTextField tcField;
+    private JButton yenileButton;
+    private JButton seferEkleButton;
     private ButtonGroup otobusGrup;
     int seferId;
 
@@ -167,7 +169,6 @@ public class UserMainScreen extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 DatabaseLayer db = new DatabaseLayer();
-                System.out.println(seferList.isSelectionEmpty());
                 if(seferList.isSelectionEmpty()){
                     kontrolField.setText("Lütfen Sefer Seçiniz!");
                     kontrolField.setVisible(true);
@@ -219,10 +220,17 @@ public class UserMainScreen extends JDialog {
                 UserUpdateList userupdatelist = new UserUpdateList();
             }
         });
-        yeniSeferButton.addActionListener(new ActionListener() {
+        yenileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                frame.dispose();
+                new UserMainScreen();
+            }
+        });
+        seferEkleButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //yeni sefer ekranı
             }
         });
     }

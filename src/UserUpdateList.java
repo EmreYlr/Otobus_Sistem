@@ -4,19 +4,22 @@ import model.Yolcu;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import javax.swing.table.TableRowSorter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class UserUpdateList extends JDialog {
     private JPanel contentPane;
     private JButton silButton;
     private JButton duzenleButton;
     private JButton araButton;
-    private JTextField araField;
-    private JLabel tcField;
     private JTable table1;
     private JSplitPane rootPanel;
     private Yolcu selectYolcu;
@@ -26,15 +29,15 @@ public class UserUpdateList extends JDialog {
     public UserUpdateList() {
         JFrame frame;
         frame = new JFrame("Kullanıcı Listesi");
-        frame.setSize(900, 350);
+        frame.setSize(900, 300);
         frame.add(contentPane);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
+        DatabaseLayer db = new DatabaseLayer();
         List<Yolcu> yolcu = new ArrayList<>();
         List<Koltuk> koltuk = new ArrayList<>();
-        DatabaseLayer db = new DatabaseLayer();
+
         db.getYolcu(yolcu);
         db.getKoltuk(koltuk);
         YolcuTableModel yolcutablemodel = new YolcuTableModel(yolcu,koltuk);
@@ -46,7 +49,6 @@ public class UserUpdateList extends JDialog {
         table1.getSelectionModel().addListSelectionListener(e->{
             duzenleButton.setEnabled(true);
             silButton.setEnabled(true);
-
         });
         duzenleButton.addActionListener(new ActionListener() {
             String[] temp = new String[7];
@@ -64,15 +66,36 @@ public class UserUpdateList extends JDialog {
                         temp[4] = (String.valueOf(selectYolcu.getCinsiyet()));
                         temp[5] = (String.valueOf(selectKoltuk.getSefer_id()));
                         temp[6] = (String.valueOf(selectKoltuk.getKoltukNo()));
-                        new UserUpdateScreen(temp);
-                        yolcutablemodel.fireTableDataChanged();
+                        new UserUpdateScreen(temp,frame);
                     }
                 }
             }
+
         });
         silButton.addActionListener(new ActionListener() {
+            String[] temp = new String[3];
+            DatabaseLayer db = new DatabaseLayer();
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(!table1.getSelectionModel().isSelectionEmpty()){
+                    selectedIndex = table1.convertRowIndexToModel(table1.getSelectedRow());
+                    selectYolcu = yolcu.get(selectedIndex);
+                    selectKoltuk = koltuk.get(selectedIndex);
+                    if(selectYolcu != null){
+                        temp[0] = (selectYolcu.getTc());
+                        temp[1] = (String.valueOf(selectKoltuk.getSefer_id()));
+                        temp[2] = (String.valueOf(selectKoltuk.getKoltukNo()));
+                        int result = JOptionPane.showConfirmDialog(frame,"Silmek İstediğinizden Emin Misiniz?", "UYARI!",
+                                JOptionPane.YES_NO_OPTION,
+                                JOptionPane.QUESTION_MESSAGE);
+                        if(result == JOptionPane.YES_NO_OPTION){
+                            db.yolcuSil(temp);
+                            frame.dispose();
+                            new UserUpdateList();
+                        }
+
+                    }
+                }
             }
         });
     }

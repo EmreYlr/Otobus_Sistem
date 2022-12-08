@@ -105,6 +105,21 @@ public class DatabaseLayer extends AbstractDatabaseLayer{
         }
     }
 
+    void yolcuSil(String[] temp){
+        if(con==null) connect();
+        try {
+            PreparedStatement add=con.prepareStatement("delete from yolcu where tc = ?");
+            add.setString(1,temp[0]);
+            PreparedStatement add2=con.prepareStatement("delete from koltuk where sefer_id = ? and koltuk_no = ?");
+            add2.setString(1,temp[1]);
+            add2.setString(2,temp[2]);
+            add2.executeUpdate();
+            add.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     boolean checkLogin(String kullaniciAdi, String sifre){
         if(con==null) connect();
         try {

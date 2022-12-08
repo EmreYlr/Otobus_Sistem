@@ -899,19 +899,27 @@
               <text value="Kullanıcı Düzenle"/>
             </properties>
           </component>
-          <component id="d7d7a" class="javax.swing.JButton" binding="yeniSeferButton">
-            <constraints>
-              <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Yeni Sefer Ekle"/>
-            </properties>
-          </component>
           <vspacer id="13d0">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
+          <component id="4d5c1" class="javax.swing.JButton" binding="yenileButton">
+            <constraints>
+              <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Yenile"/>
+            </properties>
+          </component>
+          <component id="b64fc" class="javax.swing.JButton" binding="seferEkleButton">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Seferleri Düzenle"/>
+            </properties>
+          </component>
         </children>
       </grid>
     </children>
