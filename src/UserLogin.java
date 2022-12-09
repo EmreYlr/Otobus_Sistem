@@ -68,6 +68,18 @@ public class UserLogin{
             public void actionPerformed(ActionEvent e) {
             }
         });
+
+        signUpHyperText.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                signUpHyperText.setText("<html><a href=''>" + "Need an account? Sign up" + "</a></html>");
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                signUpHyperText.setText("Need an account? Sign up");
+            }
+        });
     }
     private void onCancel() {
         frame.dispose();

@@ -34,26 +34,32 @@ public class seferScreenUpdate extends JDialog {
         duzenleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String[] tempUpdate = new String[8];
-                tempUpdate[0] = idField.getText();
-                tempUpdate[1] = kalkisField.getText();
-                tempUpdate[2] = varisField.getText();
-                tempUpdate[3] = kalkisTarihField.getText();
-                tempUpdate[4] = varisTarihField.getText();
-                tempUpdate[5] = kaptanField.getText();
-                tempUpdate[6] = plakaField.getText();
-                tempUpdate[7] = kapasiteField.getText();
+                if(idField.getText().equals("") || kalkisField.getText().equals("") || varisField.getText().equals("") || kalkisTarihField.getText().equals("")
+                        || varisTarihField.getText().equals("") || kaptanField.getText().equals("") || plakaField.getText().equals("") || kaptanField.getText().equals("")){
+                    JOptionPane.showMessageDialog(null, "Lütfen Boşlukları Doldurunuz!");
+                }else{
+                    String[] tempUpdate = new String[8];
+                    tempUpdate[0] = idField.getText();
+                    tempUpdate[1] = kalkisField.getText();
+                    tempUpdate[2] = varisField.getText();
+                    tempUpdate[3] = kalkisTarihField.getText();
+                    tempUpdate[4] = varisTarihField.getText();
+                    tempUpdate[5] = kaptanField.getText();
+                    tempUpdate[6] = plakaField.getText();
+                    tempUpdate[7] = kapasiteField.getText();
 
-                DatabaseLayer db = new DatabaseLayer();
-                int result = JOptionPane.showConfirmDialog(frame,"Kaydetmek İstediğinizden Emin Misiniz?", "UYARI!",
-                        JOptionPane.YES_NO_OPTION,
-                        JOptionPane.QUESTION_MESSAGE);
-                if(result == JOptionPane.YES_NO_OPTION){
-                    db.updateSefer(temp,tempUpdate);
-                    frame.dispose();
-                    x.dispose();
-                    new seferScreen();
+                    DatabaseLayer db = new DatabaseLayer();
+                    int result = JOptionPane.showConfirmDialog(frame,"Kaydetmek İstediğinizden Emin Misiniz?", "UYARI!",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE);
+                    if(result == JOptionPane.YES_NO_OPTION){
+                        db.updateSefer(temp,tempUpdate);
+                        frame.dispose();
+                        x.dispose();
+                        new seferScreen();
+                    }
                 }
+
             }
         });
     }

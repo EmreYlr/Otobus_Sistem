@@ -125,7 +125,6 @@ public class UserMainScreen extends JDialog {
             public void mouseClicked(MouseEvent e) {
                 ImageIcon male = new ImageIcon("/Users/emre/IdeaProjects/odev/src/male.png");
                 ImageIcon female = new ImageIcon("/Users/emre/IdeaProjects/odev/src/female.png");
-                //koltukTemizle();
                 for (JRadioButton b: list){
                     b.setEnabled(true);
                 }

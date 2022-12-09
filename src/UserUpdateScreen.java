@@ -41,29 +41,33 @@ public class UserUpdateScreen extends JDialog {
         duzenleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String[] tempUpdate = new String[7];
-                tempUpdate[0] = tcField.getText();
-                tempUpdate[1] = isimField.getText();
-                tempUpdate[2] = soyadField.getText();
-                tempUpdate[3] = telefonField.getText();
-                tempUpdate[5] = seferNoField.getText();
-                tempUpdate[6] = koltukNoField.getText();
-                if(erkekRadioButton.isSelected()){
-                    tempUpdate[4] = "erkek";
-                }else{
-                    tempUpdate[4] = "kadın";
-                }
-                DatabaseLayer db = new DatabaseLayer();
-                int result = JOptionPane.showConfirmDialog(frame,"Kaydetmek İstediğinizden Emin Misiniz?", "UYARI!",
-                        JOptionPane.YES_NO_OPTION,
-                        JOptionPane.QUESTION_MESSAGE);
-                if(result == JOptionPane.YES_NO_OPTION){
-                    db.updateYolcu(temp,tempUpdate);
-                    frame.dispose();
-                    x.dispose();
-                    new UserUpdateList();
-                }
+                if (tcField.getText().equals("") || isimField.getText().equals("") || soyadField.getText().equals("") || telefonField.getText().equals("") || seferNoField.getText().equals("") || koltukNoField.getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Lütfen Boşlukları Doldurunuz!");
+                } else {
+                    String[] tempUpdate = new String[7];
+                    tempUpdate[0] = tcField.getText();
+                    tempUpdate[1] = isimField.getText();
+                    tempUpdate[2] = soyadField.getText();
+                    tempUpdate[3] = telefonField.getText();
+                    tempUpdate[5] = seferNoField.getText();
+                    tempUpdate[6] = koltukNoField.getText();
+                    if (erkekRadioButton.isSelected()) {
+                        tempUpdate[4] = "erkek";
+                    } else {
+                        tempUpdate[4] = "kadın";
+                    }
+                    DatabaseLayer db = new DatabaseLayer();
+                    int result = JOptionPane.showConfirmDialog(frame, "Kaydetmek İstediğinizden Emin Misiniz?", "UYARI!",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE);
+                    if (result == JOptionPane.YES_NO_OPTION) {
+                        db.updateYolcu(temp, tempUpdate);
+                        frame.dispose();
+                        x.dispose();
+                        new UserUpdateList();
+                    }
 
+                }
             }
         });
     }

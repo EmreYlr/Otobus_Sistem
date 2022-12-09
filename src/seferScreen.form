@@ -19,7 +19,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <grid id="59c89" layout-manager="GridLayoutManager" row-count="8" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="59c89" layout-manager="GridLayoutManager" row-count="8" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <splitpane position="left"/>
@@ -33,14 +33,6 @@
                 </constraints>
                 <properties>
                   <text value="Düzenle"/>
-                </properties>
-              </component>
-              <component id="6dfc5" class="javax.swing.JButton" binding="silButton" default-binding="true">
-                <constraints>
-                  <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Sil"/>
                 </properties>
               </component>
               <component id="83cb9" class="javax.swing.JLabel">
@@ -107,14 +99,6 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="b5cad" class="javax.swing.JTextField" binding="kalkisTarihField">
-                <constraints>
-                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties/>
-              </component>
               <component id="a3d7b" class="javax.swing.JTextField" binding="varisTarihField">
                 <constraints>
                   <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
@@ -147,14 +131,30 @@
                   <text value="EKLE"/>
                 </properties>
               </component>
-              <hspacer id="354f1">
+              <component id="6dfc5" class="javax.swing.JButton" binding="silButton" default-binding="true">
                 <constraints>
-                  <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
-              </hspacer>
-              <hspacer id="1d042">
+                <properties>
+                  <text value="Sil"/>
+                </properties>
+              </component>
+              <component id="d5275" class="javax.swing.JTextField" binding="kalkisTarihField">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <hspacer id="29d64">
                 <constraints>
                   <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <hspacer id="a8b78">
+                <constraints>
+                  <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
               </hspacer>
             </children>

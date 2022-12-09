@@ -20,6 +20,7 @@ public class seferScreen extends JDialog {
     private JTextField varisTarihField;
     private JTextField kaptanField;
     private JTextField plakaField;
+    private JLabel errorLabel;
     private Sefer selectSefer;
     private Otobus selectOtobus;
     private int selectedIndex;
@@ -112,23 +113,27 @@ public class seferScreen extends JDialog {
         ekleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DatabaseLayer db = new DatabaseLayer();
-                Sefer s = new Sefer();
-                Otobus o = new Otobus();
-                o.setPlaka(plakaField.getText());
-                o.setKapasite(38);
-                db.instertOtobus(o);
-                s.setOtobus_id(db.getOtobusId(o));
-                s.setPlakaKoduKalkis(kalkisField.getText().equals("İstanbul") ? 34:63);
-                s.setPlakaKoduVaris(varisField.getText().equals("İstanbul") ? 34:63);
-                s.setKalkisTarihi(kalkisTarihField.getText());
-                s.setVarisTarihi(varisTarihField.getText());
-                s.setKaptan(kaptanField.getText());
-                db.instertSefer(s);
-                s.setId(db.getSeferId(db.getOtobusId(o)));
-                sefer.add(s);
-                otobus.add(o);
-                sefertablemodel.fireTableDataChanged();
+                if(kalkisField.getText().equals("") || varisField.getText().equals("") || kalkisTarihField.getText().equals("") || varisTarihField.getText().equals("") || kaptanField.getText().equals("") || plakaField.getText().equals("")){
+                    JOptionPane.showMessageDialog(null, "Lütfen Boşlukları Doldurunuz!");
+                }else{
+                    DatabaseLayer db = new DatabaseLayer();
+                    Sefer s = new Sefer();
+                    Otobus o = new Otobus();
+                    o.setPlaka(plakaField.getText());
+                    o.setKapasite(38);
+                    db.instertOtobus(o);
+                    s.setOtobus_id(db.getOtobusId(o));
+                    s.setPlakaKoduKalkis(kalkisField.getText().equals("İstanbul") ? 34:63);
+                    s.setPlakaKoduVaris(varisField.getText().equals("İstanbul") ? 34:63);
+                    s.setKalkisTarihi(kalkisTarihField.getText());
+                    s.setVarisTarihi(varisTarihField.getText());
+                    s.setKaptan(kaptanField.getText());
+                    db.instertSefer(s);
+                    s.setId(db.getSeferId(db.getOtobusId(o)));
+                    sefer.add(s);
+                    otobus.add(o);
+                    sefertablemodel.fireTableDataChanged();
+                }
             }
         });
     }
