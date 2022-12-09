@@ -1,8 +1,6 @@
 import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 public class UserUpdateScreen extends JDialog {
     private JPanel contentPane;
@@ -56,7 +54,7 @@ public class UserUpdateScreen extends JDialog {
                     } else {
                         tempUpdate[4] = "kadın";
                     }
-                    DatabaseLayer db = new DatabaseLayer();
+                    DatabaseLayerUser db = new DatabaseLayerUser();
                     int result = JOptionPane.showConfirmDialog(frame, "Kaydetmek İstediğinizden Emin Misiniz?", "UYARI!",
                             JOptionPane.YES_NO_OPTION,
                             JOptionPane.QUESTION_MESSAGE);

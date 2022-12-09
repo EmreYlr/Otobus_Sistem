@@ -99,7 +99,7 @@ public class UserMainScreen extends JDialog {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DatabaseLayer db = new DatabaseLayer();
+                DatabaseLayerUser db = new DatabaseLayerUser();
                 Sehir s = new Sehir(34, "İstanbul");
                 Sehir s1 = new Sehir(63, "Urfa");
                 if(fromBox.getSelectedItem().equals("İstanbul") && toBox.getSelectedItem().equals("Urfa")){
@@ -131,7 +131,7 @@ public class UserMainScreen extends JDialog {
                 String temp = (String) seferList.getSelectedValue();
                 String[] a = temp.split("\\s");
                 seferId = Integer.parseInt(a[0]);
-                DatabaseLayer db = new DatabaseLayer();
+                DatabaseLayerUser db = new DatabaseLayerUser();
                 HashMap<Integer, Integer> test = db.getOtobus(seferId);
                 HashMap<Integer, String> test2 =  db.getCinsiyet(test);
 
@@ -158,7 +158,7 @@ public class UserMainScreen extends JDialog {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DatabaseLayer db = new DatabaseLayer();
+                DatabaseLayerUser db = new DatabaseLayerUser();
                 if(seferList.isSelectionEmpty()){
                     kontrolField.setText("Lütfen Sefer Seçiniz!");
                     kontrolField.setVisible(true);

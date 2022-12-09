@@ -5,23 +5,8 @@ import java.sql.*;
 import java.util.HashMap;
 import java.util.List;
 
-public class DatabaseLayer extends AbstractDatabaseLayer{
-    void insertAdmin(Kullanci kullanci){
-        if(con==null) connect();
-        try {
-            String que = "insert into Admin(isim, soyisim,kullaniciAdi,sifre,cinsiyet,statu) values (?,?,?,?,?,?)";
-            PreparedStatement add=con.prepareStatement(que);
-            add.setString(1,kullanci.getIsim().toUpperCase());
-            add.setString(2,kullanci.getSoyisim().toUpperCase());
-            add.setString(3,kullanci.getKullaniciAdi());
-            add.setString(4,kullanci.getSifre());
-            add.setString(5,String.valueOf(kullanci.cinsiyet));
-            add.setString(6,String.valueOf(kullanci.statu));
-            add.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+public class DatabaseLayerUser extends AbstractDatabaseLayer{
+
     void insertYolcu(Yolcu yolcu){
         if(con==null) connect();
         try {
@@ -177,10 +162,14 @@ public class DatabaseLayer extends AbstractDatabaseLayer{
     void seferSil(String[] temp){
         if(con==null) connect();
         try {
+            //delete from yolcu where id in (select yolcu_id from koltuk WHERE sefer_id = 24)
+            PreparedStatement add3=con.prepareStatement("delete from yolcu where id in (select yolcu_id from koltuk WHERE sefer_id = ?)");
+            add3.setString(1,temp[0]);
             PreparedStatement add=con.prepareStatement("delete from sefer where id = ?");
             add.setString(1,temp[0]);
             PreparedStatement add2=con.prepareStatement("delete from otobus where plaka = ?");
             add2.setString(1,temp[1]);
+            add3.executeUpdate();
             add.executeUpdate();
             add2.executeUpdate();
         } catch (SQLException e) {
@@ -188,23 +177,7 @@ public class DatabaseLayer extends AbstractDatabaseLayer{
         }
     }
 
-    boolean checkLogin(String kullaniciAdi, String sifre){
-        if(con==null) connect();
-        try {
-            PreparedStatement add = con.prepareStatement("select kullaniciAdi,sifre from admin where kullaniciAdi = ? ");
-            add.setString(1,kullaniciAdi);
-            ResultSet rs = add.executeQuery();
-            if(rs.next()){
-                if(rs.getString(1).equals(kullaniciAdi) && rs.getString(2).equals(sifre)) return true;
-            }else{
-                return false;
-            }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
 
     void instertSefer(Sefer s){
         if(con == null) connect();

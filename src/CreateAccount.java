@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class CreateAccount  {
-    DatabaseLayer db;
+    DatabaseLayerAdmin db;
     private JPanel contentPanel;
     private JButton buttonSumbit;
     private JButton buttonCancel;
@@ -19,7 +19,7 @@ public class CreateAccount  {
     private JLabel userNameText;
 
     public CreateAccount() {
-        db = new DatabaseLayer();
+        db = new DatabaseLayerAdmin();
         JFrame frame = new JFrame("Kayıt Ekranı");
         frame.setSize(550, 400);
         frame.add(contentPanel);
@@ -29,7 +29,7 @@ public class CreateAccount  {
 
         buttonSumbit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                db = new DatabaseLayer();
+                db = new DatabaseLayerAdmin();
                     if((nameField.getText().equals(""))||(lastNameField.getText().equals("")) || (userNameField.getText().equals(""))
                     || passwordField.getText().equals("") || !maleRadioButton.isSelected() && !femaleRadioButton.isSelected()){
                         fillGaps.setText("Please fill all blanks !");

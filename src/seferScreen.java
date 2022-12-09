@@ -33,7 +33,7 @@ public class seferScreen extends JDialog {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        DatabaseLayer db = new DatabaseLayer();
+        DatabaseLayerUser db = new DatabaseLayerUser();
         List<Sefer> sefer = new ArrayList<>();
         List<Otobus> otobus = new ArrayList<>();
         db.getSeferList(sefer);
@@ -87,7 +87,7 @@ public class seferScreen extends JDialog {
         });
         silButton.addActionListener(new ActionListener() {
             String[] temp = new String[2];
-            DatabaseLayer db = new DatabaseLayer();
+            DatabaseLayerUser db = new DatabaseLayerUser();
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!table1.getSelectionModel().isSelectionEmpty()){
@@ -116,7 +116,7 @@ public class seferScreen extends JDialog {
                 if(kalkisField.getText().equals("") || varisField.getText().equals("") || kalkisTarihField.getText().equals("") || varisTarihField.getText().equals("") || kaptanField.getText().equals("") || plakaField.getText().equals("")){
                     JOptionPane.showMessageDialog(null, "Lütfen Boşlukları Doldurunuz!");
                 }else{
-                    DatabaseLayer db = new DatabaseLayer();
+                    DatabaseLayerUser db = new DatabaseLayerUser();
                     Sefer s = new Sefer();
                     Otobus o = new Otobus();
                     o.setPlaka(plakaField.getText());

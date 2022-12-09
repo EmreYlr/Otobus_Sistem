@@ -48,7 +48,7 @@ public class seferScreenUpdate extends JDialog {
                     tempUpdate[6] = plakaField.getText();
                     tempUpdate[7] = kapasiteField.getText();
 
-                    DatabaseLayer db = new DatabaseLayer();
+                    DatabaseLayerUser db = new DatabaseLayerUser();
                     int result = JOptionPane.showConfirmDialog(frame,"Kaydetmek İstediğinizden Emin Misiniz?", "UYARI!",
                             JOptionPane.YES_NO_OPTION,
                             JOptionPane.QUESTION_MESSAGE);

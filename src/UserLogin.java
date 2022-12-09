@@ -1,6 +1,9 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
 
 public class UserLogin{
     private JPanel contentPanel;
@@ -31,7 +34,7 @@ public class UserLogin{
 
         buttonSubmit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                DatabaseLayer db = new DatabaseLayer();
+                DatabaseLayerAdmin db = new DatabaseLayerAdmin();
                 if(usernameTF.getText().equals("") || passwordPF.getText().equals("")){
                     fillGaps.setText("Please fill all blanks !");
                     fillGaps.setBackground(Color.red);

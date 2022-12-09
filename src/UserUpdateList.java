@@ -1,16 +1,12 @@
 import model.Koltuk;
-import model.Kullanci;
 import model.Yolcu;
 
 import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class UserUpdateList extends JDialog {
     private JPanel contentPane;
@@ -30,7 +26,7 @@ public class UserUpdateList extends JDialog {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        DatabaseLayer db = new DatabaseLayer();
+        DatabaseLayerUser db = new DatabaseLayerUser();
         List<Yolcu> yolcu = new ArrayList<>();
         List<Koltuk> koltuk = new ArrayList<>();
 
@@ -85,7 +81,7 @@ public class UserUpdateList extends JDialog {
         });
         silButton.addActionListener(new ActionListener() {
             String[] temp = new String[3];
-            DatabaseLayer db = new DatabaseLayer();
+            DatabaseLayerUser db = new DatabaseLayerUser();
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(!table1.getSelectionModel().isSelectionEmpty()){

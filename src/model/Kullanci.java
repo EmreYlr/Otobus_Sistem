@@ -10,11 +10,9 @@ public class Kullanci {
     public Cinsiyet getCinsiyet() {
         return cinsiyet;
     }
-
     public void setCinsiyet(Cinsiyet cinsiyet) {
         this.cinsiyet = cinsiyet;
     }
-
     protected String isim;
     protected String soyisim;
     protected String sifre;
