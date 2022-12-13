@@ -20,6 +20,18 @@ public class seferScreen extends JDialog {
     private JTextField varisTarihField;
     private JTextField kaptanField;
     private JTextField plakaField;
+    private JComboBox kalkisBox;
+    private JComboBox varisBox;
+    private JComboBox gunBox;
+    private JComboBox ayBox;
+    private JComboBox yearBox;
+    private JComboBox saatBox;
+    private JComboBox dkBox;
+    private JComboBox varisGunBox;
+    private JComboBox varisAyBox;
+    private JComboBox varisYilBox;
+    private JComboBox varisSaatBox;
+    private JComboBox varisDkBox;
     private JLabel errorLabel;
     private Sefer selectSefer;
     private Otobus selectOtobus;
@@ -113,7 +125,7 @@ public class seferScreen extends JDialog {
         ekleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(kalkisField.getText().equals("") || varisField.getText().equals("") || kalkisTarihField.getText().equals("") || varisTarihField.getText().equals("") || kaptanField.getText().equals("") || plakaField.getText().equals("")){
+                if(kaptanField.getText().equals("") || plakaField.getText().equals("")){
                     JOptionPane.showMessageDialog(null, "Lütfen Boşlukları Doldurunuz!");
                 }else{
                     DatabaseLayerUser db = new DatabaseLayerUser();
@@ -123,10 +135,10 @@ public class seferScreen extends JDialog {
                     o.setKapasite(38);
                     db.instertOtobus(o);
                     s.setOtobus_id(db.getOtobusId(o));
-                    s.setPlakaKoduKalkis(kalkisField.getText().equals("İstanbul") ? 34:63);
-                    s.setPlakaKoduVaris(varisField.getText().equals("İstanbul") ? 34:63);
-                    s.setKalkisTarihi(kalkisTarihField.getText());
-                    s.setVarisTarihi(varisTarihField.getText());
+                    s.setPlakaKoduKalkis(kalkisBox.getSelectedItem().equals("İstanbul") ? 34:63);
+                    s.setPlakaKoduVaris(varisBox.getSelectedItem().equals("İstanbul") ? 34:63);
+                    s.setKalkisTarihi(gunBox.getSelectedItem() + "/" + ayBox.getSelectedItem() + "/" + yearBox.getSelectedItem() + " " + saatBox.getSelectedItem() + ":" + dkBox.getSelectedItem());
+                    s.setVarisTarihi(varisGunBox.getSelectedItem() + "/" + varisAyBox.getSelectedItem() + "/" + varisYilBox.getSelectedItem() + " " + varisSaatBox.getSelectedItem() + ":" + varisDkBox.getSelectedItem());
                     s.setKaptan(kaptanField.getText());
                     db.instertSefer(s);
                     s.setId(db.getSeferId(db.getOtobusId(o)));
