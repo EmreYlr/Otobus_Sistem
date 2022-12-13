@@ -1,4 +1,3 @@
-import model.DatabaseCommon;
 import model.Kullanci;
 
 import java.sql.PreparedStatement;

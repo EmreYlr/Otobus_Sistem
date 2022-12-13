@@ -5,6 +5,8 @@ import javax.swing.*;
 import javax.swing.table.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,7 @@ public class UserUpdateList extends JDialog {
     private JButton araButton;
     private JTable table1;
     private JSplitPane rootPanel;
+    private JTextField searchField;
     private Yolcu selectYolcu;
     private Koltuk selectKoltuk;
     private int selectedIndex;
@@ -103,6 +106,17 @@ public class UserUpdateList extends JDialog {
 
                     }
                 }
+            }
+        });
+        searchField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                YolcuTableModel model = (YolcuTableModel) table1.getModel();
+                TableRowSorter<YolcuTableModel> tr = new TableRowSorter<YolcuTableModel>(model);
+                table1.setRowSorter(tr);
+                tr.setRowFilter(RowFilter.regexFilter(searchField.getText().toUpperCase()));
+
+
             }
         });
     }

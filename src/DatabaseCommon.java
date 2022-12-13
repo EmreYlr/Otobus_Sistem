@@ -1,4 +1,4 @@
-package model;
+import model.Kullanci;
 
 public interface DatabaseCommon {
     void insertAdmin(Kullanci kullanici);
